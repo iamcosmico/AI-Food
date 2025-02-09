@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | PhytoLens</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776; <!-- Hamburger Icon -->
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+            <li><a href="{{ url_for('project_details') }}">Project Details</a></li>
+            <li><a href="{{ url_for('motivations') }}">Motivations</a></li>
+            <li><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <div id="leaves">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+      
+    <section class="motivations-section">
+        <!-- Image with Text Overlaid -->
+        <div class="motivations-header">
+            <img src="{{ url_for('static', filename='images/Diseases.png') }}" alt="Motivations Image" class="motivations-image">
+            <div class="motivations-text">
+                <h1>Motivations</h1>
+            </div>
+            <div class="motivations-text-below">
+                <p>Home / About Us / Project Timeline / <span class="motivations-text-highlight">Motivations</span></p>
+            </div>
+        </div>
+    </section>    
+
+    <!-- Challenges Section -->
+    <section class="challenges">
+        <div class="heading-container">
+            <img src="{{ url_for('static', filename='images/icons/ch.png') }}" alt="Left Icon" class="heading-icon">
+            <h2 class="section-heading">Challenges Faced by Farmers in Agriculture</h2>
+            <img src="{{ url_for('static', filename='images/icons/farm2.png') }}" alt="Right Icon" class="heading-icon">
+        </div>    
+        <div class="challenge-grid">
+            <!-- Block 1: Climate Change -->
+            <div class="challenge-block">
+                <img src="{{ url_for('static', filename='images/icons/cli.png') }}" alt="Climate Change Icon" class="challenge-icon">
+                <h3>Climate Change</h3>
+                <p>Changing weather patterns increase the risk of plant diseases, making it harder for farmers to predict and protect crops.</p>
+            </div>
+            
+            <!-- Block 2: Pest Infestation -->
+            <div class="challenge-block">
+                <img src="{{ url_for('static', filename='images/icons/pest.png') }}" alt="Pest Infestation Icon" class="challenge-icon">
+                <h3>Pest Infestation</h3>
+                <p>Invasive pests often carry diseases, leading to devastating crop losses and long-term soil health deterioration.</p>
+            </div>
+            
+            <!-- Block 3: Lack of Awareness -->
+            <div class="challenge-block">
+                <img src="{{ url_for('static', filename='images/icons/aw.png') }}" alt="Lack of Awareness Icon" class="challenge-icon">
+                <h3>Lack of Awareness</h3>
+                <p>Many farmers lack access to real-time information or tools to detect diseases early, resulting in delayed action.</p>
+            </div>
+            
+            <!-- Block 4: Limited Resources -->
+            <div class="challenge-block">
+                <img src="{{ url_for('static', filename='images/icons/res.png') }}" alt="Limited Resources Icon" class="challenge-icon">
+                <h3>Limited Resources</h3>
+                <p>In some regions, access to technology or expertise for disease identification and prevention is severely limited.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plant Diseases Section -->
+    <section class="plant-diseases">
+        <div class="diseases-heading-container">
+            <h2 class="section-heading">☘️ Types of Plant Diseases and Their Impacts ☘️</h2>
+        </div>
+        <div class="disease-grid">
+            <!-- Disease 1: Fungal Diseases -->
+            <div class="disease-block">
+                <img src="{{ url_for('static', filename='images/icons/fungus.png') }}" alt="Fungal Diseases Icon" class="disease-icon">
+                <h3>Fungal Diseases</h3>
+                <p>Fungal diseases like mildew and rust can cause significant crop damage, reducing yield and quality.</p>
+            </div>
+            
+            <!-- Disease 2: Bacterial Diseases -->
+            <div class="disease-block">
+                <img src="{{ url_for('static', filename='images/icons/bact.png') }}" alt="Bacterial Diseases Icon" class="disease-icon">
+                <h3>Bacterial Diseases</h3>
+                <p>Bacterial infections such as blight and wilt can quickly spread, leading to widespread crop loss.</p>
+            </div>
+            
+            <!-- Disease 3: Viral Diseases -->
+            <div class="disease-block">
+                <img src="{{ url_for('static', filename='images/icons/viral.png') }}" alt="Viral Diseases Icon" class="disease-icon">
+                <h3>Viral Diseases</h3>
+                <p>Viruses like mosaic and leaf curl can stunt plant growth and reduce agricultural productivity.</p>
+            </div>
+            
+            <!-- Disease 4: Nematode Diseases -->
+            <div class="disease-block">
+                <img src="{{ url_for('static', filename='images/icons/narma.png') }}" alt="Nematode Diseases Icon" class="disease-icon">
+                <h3>Nematode Diseases</h3>
+                <p>Nematodes attack plant roots, causing poor growth and decreased resistance to other diseases.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consequences Section -->
+    <section class="consequences">
+        <h2 class="section-heading">Consequences of Plant Diseases</h2>
+        <div class="slider-container">
+            <div class="slider" id="slider">
+                <!-- Slider 1: Crop Loss -->
+                <div class="slider-item">
+                    <img src="{{ url_for('static', filename='images/effect.png') }}" alt="Crop Loss" class="slider-image">
+                    <p class="slider-text">Crop losses due to undiagnosed diseases result in food shortages and increased prices.</p>
+                </div>
+
+                <!-- Slider 2: Economic Impact -->
+                <div class="slider-item">
+                    <img src="{{ url_for('static', filename='images/eco.jpg') }}" alt="Economic Impact" class="slider-image">
+                    <p class="slider-text">Farmers face significant financial strain, with millions in losses each year due to disease outbreaks.</p>
+                </div>
+
+                <!-- Slider 3: Environmental Consequences -->
+                <div class="slider-item">
+                    <img src="{{ url_for('static', filename='images/pesto.jpg') }}" alt="Environmental Impact" class="slider-image">
+                    <p class="slider-text">Excessive use of pesticides harms the environment, leading to soil degradation and water contamination.</p>
+                </div>
+
+                <!-- Slider 4: Food Security -->
+                <div class="slider-item">
+                    <img src="{{ url_for('static', filename='images/sec.jpg') }}" alt="Food Security" class="slider-image">
+                    <p class="slider-text">Untreated plant diseases jeopardize food security and the livelihoods of millions of people worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <h2 class="cta-heading">Join the Fight Against Plant Diseases</h2>
+        <p>With Phytolens, we have the tools to make a difference. Together, we can help farmers prevent losses and ensure food security for all.</p>
+        <a href="#contact" class="cta-button">Get Involved</a>
+    </section>
+
+    <footer style="background-color: #1b4332; color: #ffffff; padding: 60px 0; font-family: 'Poppins', sans-serif; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <!-- Top Section: Logo, Links, and Social Media -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; align-items: start;">
+                <!-- Logo and Description -->
+                <div>
+                    <h2 style="font-size: 1.8rem; margin-bottom: 15px;">PhytoLens</h2>
+                    <p style="font-size: 1rem; line-height: 1.6;">
+                        Harnessing AI for plant health. Revolutionizing agriculture with intelligent solutions that grow with you!
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Quick Links</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin: 10px 0;"><a href="#" style="color: #b7e4c7; text-decoration: none; font-size: 1rem;">Home</a></li>
+                        <li style="margin: 10px 0;"><a href="#" style="color: #b7e4c7; text-decoration: none; font-size: 1rem;">About Us</a></li>
+                        <li style="margin: 10px 0;"><a href="#" style="color: #b7e4c7; text-decoration: none; font-size: 1rem;">Project Timeline</a></li>
+                        <li style="margin: 10px 0;"><a href="#" style="color: #b7e4c7; text-decoration: none; font-size: 1rem;">Portfolio</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Follow Us</h3>
+                    <div style="display: flex; justify-content: center; gap: 20px;">
+                        <a href="#" style="color: #ffffff; font-size: 1.8rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: #ffffff; font-size: 1.8rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: #ffffff; font-size: 1.8rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: #ffffff; font-size: 1.8rem;"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div style="border-top: 1px solid #b7e4c7; margin: 40px 0;"></div>
+
+            <!-- Bottom Section: Copyright -->
+            <div style="font-size: 0.9rem; color: #b7e4c7;">
+                © 2025 PhytoLens. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Toggle the visibility of the navigation menu
+        function toggleMenu() {
+            // Select the navigation links container
+            const navLinks = document.querySelector('.nav-links');
+
+            // Check if the element exists to avoid errors
+            if (navLinks) {
+                // Toggle the 'show' class to display/hide the menu
+                navLinks.classList.toggle('show');
+            } else {
+                console.error('Error: Navigation links element not found.');
+            }
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,522 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  height: 58px;
+  justify-content: space-between; /* Space between logo and nav links */
+  align-items: center; /* Vertical centering of logo and links */
+  padding: 15px 50px;
+  background: rgba(255, 255, 255, 0.2); /* Glass effect */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  backdrop-filter: blur(15px); /* Smooth blur effect */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Glass-like border */
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo img {
+  width: 130px; /* Adjust logo size */
+}
+/* Nav Links Styling */
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Center nav links */
+  align-items: center; /* Vertically align nav links */
+  gap: 60px; /* Spacing between links */
+  flex: 1; /* Take up remaining space for proper centering */
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.nav-links li {
+  display: inline-block;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #0000007d; /* Black text */
+  font-size: 17px; /* Larger text size */
+  font-weight: 600; /* Bold for readability */
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s ease; /* Smooth text color change */
+}
+
+/* Underline Hover Effect */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background: #006400; /* Dark green underline */
+  border-radius: 5px; /* Rounded underline */
+  transition: width 0.4s ease; /* Smooth underline animation */
+}
+
+.nav-links a:hover::after {
+  width: 100%; /* Full underline on hover */
+}
+
+.nav-links a:hover {
+  color: #006400; /* Dark green text on hover */
+}
+/* Motivations Section Styling */
+.motivations-section {
+  width: 100%;
+  text-align: center;
+}
+
+/* Image with Text Overlay */
+.motivations-header {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.motivations-image {
+  width: 100%;
+  height: 160px; /* Adjust based on your image size */
+  object-fit: cover;
+  opacity: 0.4; /* Slightly dark overlay on image */
+  margin-top: 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 12px rgba(46, 178, 121, 0.638);
+}
+
+.motivations-text {
+  position: absolute;
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(55, 105, 65);
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.378); /* Optional for better readability */
+}
+
+/* Simple Text Below the Image */
+.motivations-text-below {
+  margin-top: -90px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Highlighting the "Motivations" text */
+.motivations-text-highlight {
+  color: #006400; /* Green color for "Motivations" */
+}
+/* General Layout */
+.motivation {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 70px auto;
+    padding: 50px;
+    background: linear-gradient(145deg, #ffffff, #acb3ad);
+    box-shadow: 0 10px 25px rgb(53, 97, 62);
+    border-radius: 16px;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+.image-section {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+.image-section img {
+    width: 100%;
+    max-width: 220px; /* Larger image size */
+    height: auto;
+    border-radius: 220px;
+    margin-left: 50px;
+    border: 5px solid #3fca44;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* More shadow */
+}
+.image-section img.round {
+    border-radius: 25%;
+}
+.info-section {
+    flex: 2;
+    font-size: 1rem; /* Reduced font size */
+}
+.info-section h2 {
+    font-size: 1.8rem; /* Reduced size */
+    color: #333;
+    border-bottom: 2px solid #4CAF50;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+.info-section p {
+    margin: 15px 0;
+    line-height: 1.8;
+}
+.extra-info {
+    margin-top: 30px;
+    font-size: 1rem; /* Reduced size */
+}
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+.skills span {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Extra shadow */
+}
+.social-links {
+    text-align: center;
+    margin-top: 30px;
+}
+.social-links p {
+    margin-bottom: 10px;
+}
+.social-links a {
+    margin: 10px 15px;
+    font-size: 2rem;
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease; /* Added transition */
+}
+.social-links a:hover {
+    color: #388E3C;
+    transform: scale(1.1); /* Scale effect */
+}
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1rem;
+    color: #666;
+}
+.icon {
+    font-size: 1.5rem;
+    color: #4CAF50;
+    margin-right: 10px;
+}
+.highlight-icon {
+    color: #eee8e6; /* Unique icon color */
+    font-size: 1.2rem;
+}
+
+
+@media screen and (max-width: 768px) {
+    .content {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center; /* Center-align all text */
+    }
+    .image-section {
+        display: none; /* Hide the image section on mobile */
+    }
+    .info-section {
+        text-align: center; /* Center-align text */
+    }
+    .info-section h2 {
+        font-size: 1.2rem; /* Adjust header size */
+    }
+    .info-section p {
+        font-size: 1rem; /* Adjust paragraph size */
+        margin: 10px 0;
+    }
+    .skills {
+        justify-content: center; /* Center-align skills */
+    }
+    .social-links {
+        margin-top: 20px;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+  }
+  .skills span {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Extra shadow */
+  }
+  .skills span i{
+      width: 20px;
+  }
+}
+
+/* Body background */
+body {
+    background: transparent; /* No background color */
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: scroll; /* Allow vertical scrolling */
+  }
+  
+  /* Leaves container */
+  #leaves {
+    position: relative;
+    top: -50px;
+    width: 100%;
+    text-align: right;
+  }
+  
+  /* Individual leaves */
+  #leaves i {
+    display: inline-block;
+    width: 210px;
+    height: 160px;
+    background: linear-gradient(to bottom right, #69f529, #005600);
+    transform: skew(20deg);
+    border-radius: 5% 40% 70%;
+    box-shadow: inset 0px 0px 1px #222;
+    border: 1px solid #333;
+    z-index: 1;
+    animation: falling 5s infinite ease-in-out;
+    opacity: 0.9; /* Slightly increased */
+  }
+  
+  /* Alternate animations for variety */
+  #leaves i:nth-of-type(2n) {
+    animation: falling2 5s infinite ease-in-out;
+  }
+  #leaves i:nth-of-type(3n) {
+    animation: falling3 5s infinite ease-in-out;
+  }
+  
+  /* Styling for smaller leaves */
+  #leaves i:nth-of-type(n) {
+    height: 23px;
+    width: 30px;
+  }
+  #leaves i:nth-of-type(n):before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 5px;
+    top: 17px;
+    right: 1px;
+    background: linear-gradient(to right, rgb(30, 215, 30), #005600);
+    border-radius: 0% 15% 15% 0%;
+    border: 1px solid #222;
+  }
+  #leaves i:nth-of-type(n):after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 17px;
+    left: 12px;
+    top: 0px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+    transform: rotate(125deg);
+    border-radius: 50%;
+  }
+  
+  /* Adjust opacity for variety */
+  #leaves i {
+    opacity: 0.9; /* Base opacity */
+  }
+  #leaves i:nth-of-type(3n+1) {
+    opacity: 0.7; /* Slightly lower for variety */
+  }
+  #leaves i:nth-of-type(3n+2) {
+    opacity: 0.5; /* Even lower for depth */
+  }
+  
+  /* Add staggered animation delays */
+  #leaves i:nth-of-type(n) {
+    animation-delay: 1.9s;
+  }
+  #leaves i:nth-of-type(2n) {
+    animation-delay: 3.9s;
+  }
+  #leaves i:nth-of-type(3n) {
+    animation-delay: 2.3s;
+  }
+  #leaves i:nth-of-type(4n) {
+    animation-delay: 4.4s;
+  }
+  #leaves i:nth-of-type(5n) {
+    animation-delay: 5s;
+  }
+  #leaves i:nth-of-type(6n) {
+    animation-delay: 3.5s;
+  }
+  #leaves i:nth-of-type(7n) {
+    animation-delay: 2.8s;
+  }
+  #leaves i:nth-of-type(8n) {
+    animation-delay: 1.5s;
+  }
+  #leaves i:nth-of-type(9n) {
+    animation-delay: 3.3s;
+  }
+  #leaves i:nth-of-type(10n) {
+    animation-delay: 2.5s;
+  }
+  #leaves i:nth-of-type(11n) {
+    animation-delay: 1.2s;
+  }
+  #leaves i:nth-of-type(12n) {
+    animation-delay: 4.1s;
+  }
+  #leaves i:nth-of-type(13n) {
+    animation-delay: 1s;
+  }
+  #leaves i:nth-of-type(14n) {
+    animation-delay: 4.7s;
+  }
+  #leaves i:nth-of-type(15n) {
+    animation-delay: 3s;
+  }
+  
+  /* Keyframes for falling leaves */
+  @keyframes falling {
+    0% {
+      transform: translate3d(300px, 0, 0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(-350px, 700px, 0) rotate(90deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes falling2 {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(90deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(-400px, 680px, 0) rotate(0deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes falling3 {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(-20deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(-230px, 640px, 0) rotate(-70deg);
+      opacity: 0;
+    }
+  }
+  /* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start */
+    padding: 10px 20px; /* Adjust padding */
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger menu on smaller screens */
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links by default */
+    flex-direction: column; /* Stack nav links vertically */
+    gap: 15px; /* Reduce gap between links */
+    margin-top: 10px; /* Add some space above the links */
+    width: 100%; /* Make nav links take full width */
+    background: rgba(255, 255, 255, 0.8); /* Glass effect */
+    padding: 10px 0;
+  }
+
+  .nav-links.show {
+    display: flex; /* Show nav links when .show class is added */
+  }
+
+  .nav-links a {
+    font-size: 16px; /* Slightly reduce font size */
+    padding: 10px 20px; /* Add padding for better touch targets */
+    width: 100%; /* Make links take full width */
+    text-align: left; /* Align text to the left */
+  }
+}
+/* Mobile View Navbar */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: row; /* Keep logo and hamburger icon in a row */
+      justify-content: space-between; /* Space between logo and icon */
+      align-items: center;
+      padding: 10px 15px;
+  }
+
+  .hamburger {
+      display: block; /* Show hamburger icon */
+      font-size: 24px; /* Adjust size */
+      cursor: pointer;
+  }
+
+  .nav-links {
+      display: none; /* Hide links initially */
+      flex-direction: column; /* Stack links vertically */
+      position: absolute; /* Position relative to navbar */
+      top: 58px; /* Place below the navbar */
+      right: 0;
+      background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+      width: 100%; /* Full width */
+      padding: 15px 0; /* Add some padding */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
+  }
+
+  .nav-links li {
+      text-align: center; /* Center links */
+      margin: 10px 0; /* Add spacing */
+  }
+
+  .nav-links.show {
+      display: flex; /* Show links when active */
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .motivations-image {
+    height: 120px; /* Adjust height for smaller screens */
+    top: 4px;
+    margin-top: 4px;
+  }
+
+  .motivations-text {
+    font-size: 17px; /* Adjust font size */
+  }
+
+  .motivations-text-below {
+    font-size: 13px; /* Adjust font size */
+    margin-top: -70px; /* Adjust margin */
+  }
+  .logo img{
+    width: 100px;
+  }
+}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<style>
+   .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('{{ url_for("static", filename="images/banner.jpg") }}');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 90vh;
+    color: white;
+    padding: 0 50px;
+}
+.hero .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+} 
+</style>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776; <!-- Hamburger Icon -->
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+            <li><a href="{{ url_for('project_details') }}">Project Details</a></li>
+            <li><a href="{{ url_for('motivations') }}">Motivations</a></li>
+            <li><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
+        </ul>
+    </nav>
+    <!-- Homepage Section -->
+<section class="hero">
+    <div class="content">
+        <div class="left-content">
+            <h1 class="main-title">Transforming Agriculture</h1>
+            <h2 class="sub-title">with <i>PhytoLens</i>
+                <img src="{{ url_for('static', filename='images/leaf.png') }}" alt="Icon" class="subtitle-icon" style="width: 50px; vertical-align: middle;">
+            </h2>                
+            <p class="description">
+                🌿 Harness the power of machine learning to predict plant diseases with pinpoint accuracy.<br>
+                🌟 From detecting early symptoms to suggesting actionable solutions, we’re bridging the gap between technology and sustainable farming.
+            </p>
+            <div class="button-container">
+                <a href="{{ url_for('test') }}">
+                    <button class="snake-button">Let's Detect</button>
+                </a>
+            </div>
+        </div>
+        <div class="right-image">
+            <img src="{{ url_for('static', filename='images/5-modified.png') }}" alt="Plant Disease">
+        </div>
+    </div>
+</section>
+    <div class="benefit-boxes">
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/icons/accu.png') }}" alt="High Accuracy" class="box-icon">
+            <h3>Unmatched Accuracy</h3>
+            <p>With advanced AI algorithms, PhytoLens diagnoses plant diseases with over 95% precision, ensuring your crops get the right treatment.</p>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/icons/eff.png') }}" alt="Efficiency" class="box-icon">
+            <h3>Time-Saving Efficiency</h3>
+            <p>Get real-time disease detection and actionable insights, saving you valuable time and protecting your harvest.</p>
+        </div>
+        <div class="box">
+            <img src="{{ url_for('static', filename='images/icons/sus.png') }}" alt="Sustainability" class="box-icon">
+            <h3>Promoting Sustainability</h3>
+            <p>PhytoLens encourages eco-friendly farming practices, reducing chemical use and ensuring a greener planet.</p>
+        </div>
+    </div>
+
+    <!-- About Page Content -->
+    <section class="about-page">
+        <!-- Main Heading -->
+        <h1 class="about-heading">About <span>PhytoLens</span></h1>
+
+        <!-- Description -->
+        <p class="about-description">
+            🌱<span style="color:#26cc26; font-weight: bold; font-size: 20px;"><i> PhytoLens </i></span> brings cutting-edge technology to the world of agriculture, using deep learning algorithms to predict plant health.
+            Powered by AI and specifically leveraging <span style="color:#006400; font-weight: bold;">Convolutional Neural Networks (CNNs)</span> built with <span style="color:#006400; font-weight: bold;">Keras</span>, PhytoLens can detect plant diseases with unmatched accuracy.
+            Our machine learning models analyze images of crops, identifying early-stage symptoms of various plant diseases such as blight, mildew, and rust, even before they are visible to the naked eye.
+            <span style="color:#006400; font-weight: bold;">Revolutionizing crop care and sustainability, one prediction at a time.</span> By using a vast dataset of plant images, PhytoLens continuously improves its diagnostic capabilities, enabling farmers to make data-driven decisions and optimize their crop yields.
+            With PhytoLens, every plant receives personalized care, helping to reduce pesticide usage and promoting environmentally-friendly farming practices.<br>
+            <span style="color:#2b4737; font-weight: bold;">Our models are trained using Keras, TensorFlow, and Python, ensuring rapid deployment and scalability for real-time analysis.</span>
+            The future of agriculture is here: predictive, sustainable, and precise.
+            <span style="color:#245539; font-weight: bold;">PhytoLens is a project associated with <span style="color:#0000FF;">Edunet Foundation</span> in collaboration with <span style="color:#4bbbce;">Microsoft</span>.</span>🌱<br><br>
+            <span style="color:#245539; font-weight: bold;">PhytoLens</span> is trained to identify diseases in a wide range of plants. Below are some examples of the plants it supports, showcasing its versatility and precision in agricultural diagnostics.
+        </p>
+
+        <!-- Supported Plants Section -->
+        <div class="supported-plants">
+            <h2 class="section-heading"><u>Supported Plants</u></h2>
+            <div class="plant-grid">
+                <!-- Plant Cards -->
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/tomato.jpg') }}" alt="Tomato">
+                    <p>Tomato</p>
+                </div>
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/b.jpg') }}" alt="Blueberry">
+                    <p>Blueberry</p>
+                </div>
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/a.jpg') }}" alt="Apple">
+                    <p>Apple</p>
+                </div>
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/grapes.jpg') }}" alt="Grapes">
+                    <p>Grapes</p>
+                </div>
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/cherry.jpg') }}" alt="Cherry">
+                    <p>Cherry</p>
+                </div>
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/potato.jpg') }}" alt="Potato">
+                    <p>Potato</p>
+                </div>
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/strawberry.jpg') }}" alt="Strawberry">
+                    <p>Strawberry</p>
+                </div>
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/peach.jpg') }}" alt="Peach">
+                    <p>Peach</p>
+                </div>
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/orag.jpg') }}" alt="Orange">
+                    <p>Orange</p>
+                </div>
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/squah.jpg') }}" alt="Soyabean">
+                    <p>Soyabean</p>
+                </div>
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/rasp.jpg') }}" alt="Raspberry">
+                    <p>Raspberry</p>
+                </div>
+                <div class="plant-card">
+                    <img src="{{ url_for('static', filename='images/pepper.jpg') }}" alt="Pepper">
+                    <p>Pepper</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2 class="how-heading">How PhytoLens Works?</h2>
+        <div class="how-grid">
+            <!-- Block 1: Upload Image -->
+            <div class="how-block">
+                <img src="{{ url_for('static', filename='images/icons/1.png') }}" alt="Step 1" class="step-icon"> <!-- Icon for step 1 -->
+                <h3>Uploading the Input Image</h3>
+                <img src="{{ url_for('static', filename='images/test.png') }}" alt="Input Example" class="example-image">
+            </div>
+            <!-- Arrow -->
+            <div class="arrow">
+                <img src="{{ url_for('static', filename='images/icons/arrow-right.png') }}" alt="Arrow Right" class="arrow-icon">
+            </div>
+            <!-- Block 2: CNN Model -->
+            <div class="how-block">
+                <img src="{{ url_for('static', filename='images/icons/2.png') }}" alt="Step 2" class="step-icon"> <!-- Icon for step 2 -->
+                <h3>Phytolens Predicts Using ML</h3>
+                <img src="{{ url_for('static', filename='images/SENTIMENT-ANALYSIS-1.jpg') }}" alt="CNN Model" class="example-image">
+                <p>Our advanced CNN-based model processes the image to detect plant diseases with precision.</p>
+            </div>
+            <!-- Arrow -->
+            <div class="arrow">
+                <img src="{{ url_for('static', filename='images/icons/arrow-right.png') }}" alt="Arrow Right" class="arrow-icon">
+            </div>
+            <!-- Block 3: Output Prediction -->
+            <div class="how-block">
+                <img src="{{ url_for('static', filename='images/icons/3.png') }}" alt="Step 3" class="step-icon"> <!-- Icon for step 3 -->
+                <h3>For Predicted Disease</h3>
+                <img src="{{ url_for('static', filename='images/pred_img.png') }}" alt="Output Example" class="example-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="motivation" class="motivation-section">
+        <h2 class="motivation-heading">Motivation</h2>
+        <p class="motivation-text">
+            Agriculture is at the forefront of ensuring a sustainable future, yet plant diseases remain a critical challenge. With PhytoLens, we leverage AI to detect plant diseases early, ensuring farmers and researchers have the tools to foster healthier crops. Together, we can revolutionize agriculture for a brighter tomorrow!
+        </p>
+        <div class="motivation-reasons">
+            <div class="reason">
+                <i class="fas fa-search"></i>
+                <span>Early Detection</span>
+            </div>
+            <div class="reason">
+                <i class="fas fa-chart-line"></i>
+                <span>Enhanced Accuracy</span>
+            </div>
+            <div class="reason">
+                <i class="fas fa-coins"></i>
+                <span>Cost Efficiency</span>
+            </div>
+            <div class="reason">
+                <i class="fas fa-robot"></i>
+                <span>AI Empowerment</span>
+            </div>
+            <div class="reason">
+                <i class="fas fa-leaf"></i>
+                <span>Sustainable Growth</span>
+            </div>
+        </div>
+        <button class="more-btn" onclick="location.href='motivation.html'">Discover More</button>
+    </section>
+
+    <footer style="background-color: #1b4332; color: #ffffff; padding: 60px 0; font-family: 'Poppins', sans-serif; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <!-- Top Section: Logo, Links, and Social Media -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; align-items: start;">
+                <!-- Logo and Description -->
+                <div>
+                    <h2 style="font-size: 1.8rem; margin-bottom: 15px;">PhytoLens</h2>
+                    <p style="font-size: 1rem; line-height: 1.6;">
+                        Harnessing AI for plant health. Revolutionizing agriculture with intelligent solutions that grow with you!
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Quick Links</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin: 10px 0;"><a href="{{ url_for('index') }}" style="color: #b7e4c7; text-decoration: none; font-size: 1rem;">Home</a></li>
+                        <li style="margin: 10px 0;"><a href="{{ url_for('about_us') }}" style="color: #b7e4c7; text-decoration: none; font-size: 1rem;">About Us</a></li>
+                        <li style="margin: 10px 0;"><a href="{{ url_for('project_details') }}" style="color: #b7e4c7; text-decoration: none; font-size: 1rem;">Project Timeline</a></li>
+                        <li style="margin: 10px 0;"><a href="{{ url_for('contact_us') }}" style="color: #b7e4c7; text-decoration: none; font-size: 1rem;">Contact Us</a></li>
+                        <li style="margin: 10px 0;"><a href="{{ url_for('motivations') }}" style="color: #b7e4c7; text-decoration: none; font-size: 1rem;">Motivations</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Follow Us</h3>
+                    <div style="display: flex; justify-content: center; gap: 20px;">
+                        <a href="#" style="color: #ffffff; font-size: 1.8rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: #ffffff; font-size: 1.8rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: #ffffff; font-size: 1.8rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/rani-soni/" style="color: #ffffff; font-size: 1.8rem;"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div style="border-top: 1px solid #b7e4c7; margin: 40px 0;"></div>
+
+            <!-- Bottom Section: Copyright -->
+            <div style="font-size: 0.9rem; color: #b7e4c7;">
+                © 2025 PhytoLens. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks) {
+                navLinks.classList.toggle('show');
+            } else {
+                console.error('Error: Navigation links element not found.');
+            }
+        }
+    </script>
+</body>
+</html>

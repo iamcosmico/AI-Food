@@ -1,0 +1,664 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 58px;
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav links */
+    align-items: center; /* Vertical centering of logo and links */
+    padding: 15px 50px;
+    background: rgba(255, 255, 255, 0.36); /* Glass effect */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    backdrop-filter: blur(15px); /* Smooth blur effect */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Glass-like border */
+    z-index: 1000;
+}
+/* Logo Styling */
+.logo {
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo img {
+  width: 150px; /* Adjust logo size */
+}
+/* Nav Links Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center nav links */
+    align-items: center; /* Vertically align nav links */
+    gap: 60px; /* Spacing between links */
+    flex: 1; /* Take up remaining space for proper centering */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #0000007d; /* Black text */
+    font-size: 16px; /* Larger text size */
+    font-weight: 600; /* Bold for readability */
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease; /* Smooth text color change */
+}
+
+/* Underline Hover Effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: #006400; /* Dark green underline */
+    border-radius: 5px; /* Rounded underline */
+    transition: width 0.4s ease; /* Smooth underline animation */
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Full underline on hover */
+}
+
+.nav-links a:hover {
+    color: #006400; /* Dark green text on hover */
+}
+
+/* Motivations Section Styling */
+.motivations-section {
+    width: 100%;
+    text-align: center;
+}
+
+/* Image with Text Overlay */
+.motivations-header {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.motivations-image {
+    width: 100%;
+    height: 160px; /* Adjust based on your image size */
+    object-fit: cover;
+    opacity: 0.4; /* Slightly dark overlay on image */
+    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 12px rgba(46, 178, 121, 0.638);
+}
+
+.motivations-text {
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(77, 88, 79);
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.377); /* Optional for better readability */
+}
+
+/* Simple Text Below the Image */
+.motivations-text-below {
+    margin-top: -90px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Highlighting the "Motivations" text */
+.motivations-text-highlight {
+    color: #006400; /* Green color for "Motivations" */
+}
+
+/* Logo Styling */
+.logo {
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo img {
+    width: 140px; /* Adjust logo size */
+}
+/* General Layout */
+.motivation {
+    padding: 50px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+/* Center the heading and add animation */
+.section-heading {
+    font-size: 30px;
+    font-weight: bold;
+    color: #006400;
+    margin-bottom: 40px;
+    text-align: center; /* Horizontally center text */
+}
+
+/* Keyframes for slide-up effect */
+@keyframes slideUpEffect {
+    0% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+/* Container for the heading with icons */
+.heading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px; /* Space between icons and heading */
+}
+
+/* Icons for the heading */
+.heading-icon {
+    width: 40px; /* Set size for the icons */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Heading text styling */
+.section-heading {
+    font-size: 28px;
+    font-weight: bold;
+    color: #174017; /* Dark green color */
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Adjust the container (if necessary) to center the heading */
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 20px;
+    margin-top: 30px;
+}
+
+/* Challenges Section */
+.challenges {
+    padding: 38px 60px;
+    background-color: #ffffff;
+}
+
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Flexible grid */
+    gap: 40px;
+    justify-items: center; /* Center align the blocks */
+    margin-top: 5px;
+}
+
+.challenge-block {
+    background: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(44, 73, 51, 0.97);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.challenge-block:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.854);
+}
+
+.challenge-icon {
+    width: 50px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.challenge-block h3 {
+    font-size: 23px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.challenge-block p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Plant Diseases Section */
+.plant-diseases {
+  padding: 20px 20px;
+  background: linear-gradient(to bottom,rgba(208, 209, 208, 0.642), white, grey);
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+}
+
+.diseases-heading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px; /* Space between icons and heading */
+  margin-bottom: 10px;
+}
+
+.heading-icon {
+  width: 40px; /* Set size for the icons */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.section-heading {
+  font-size: 28px;
+  font-weight: bold;
+  color: #174017; /* Dark green color */
+  text-align: center;
+}
+
+.disease-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Flexible grid */
+  gap: 40px;
+  justify-items: center; /* Center align the blocks */
+}
+
+.disease-block {
+  background: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(44, 73, 51, 0.97);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.disease-block:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.854);
+}
+
+.disease-icon {
+  width: 50px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.disease-block h3 {
+  font-size: 23px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.disease-block p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .diseases-heading-container {
+      gap: 10px; /* Reduce gap between icons and heading */
+      margin-bottom: 20px;
+  }
+
+  .heading-icon {
+      width: 30px; /* Reduce icon size */
+  }
+
+  .section-heading {
+      font-size: 24px; /* Reduce heading size */
+  }
+
+  .disease-grid {
+      gap: 20px; /* Reduce gap */
+  }
+
+  .disease-block {
+      padding: 10px; /* Reduce padding */
+  }
+
+  .disease-icon {
+      width: 40px; /* Reduce icon size */
+      margin-bottom: 10px;
+  }
+
+  .disease-block h3 {
+      font-size: 18px; /* Reduce text size */
+  }
+
+  .disease-block p {
+      font-size: 12px; /* Reduce text size */
+  }
+}
+/* Consequences Section */
+.consequences {
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+/* Styling for the slider container */
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 20px;
+    margin-top: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Slider setup: Prevent size shifting */
+.slider {
+    display: flex;
+    transition: transform 1s ease-in-out; /* Smooth transition between slides */
+    width: 100%; /* Ensure it spans the full width */
+    position: relative;
+}
+
+/* Each slider item should take up the full width of the container */
+.slider-item {
+    min-width: 100%; /* Set width to 100% to ensure each item fits the container */
+    transition: transform 1s ease-in-out; /* Smooth transition for individual items */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+}
+
+.slider-item img {
+    width: 100%;
+    max-width: 700px; /* Control the image size */
+    border-radius: 10px;
+}
+
+/* Initially hide all but the first slide */
+.slider-item {
+    opacity: 0;
+    display: none; /* Hide other slides initially */
+}
+
+.slider-item.active {
+    display: block; /* Show the active slide */
+    opacity: 1;
+}
+
+/* CTA Section */
+.cta {
+    padding: 60px 20px;
+    background-color: #006400;
+    color: white;
+    text-align: center;
+}
+
+.cta-button {
+    background-color: yellow;
+    color: #006400;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+/* Body background */
+body {
+    background: transparent; /* No background color */
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: scroll; /* Allow vertical scrolling */
+  }
+  
+  /* Leaves container */
+  #leaves {
+    position: relative;
+    top: -50px;
+    width: 100%;
+    text-align: right;
+  }
+  
+  /* Individual leaves */
+  #leaves i {
+    display: inline-block;
+    width: 210px;
+    height: 160px;
+    background: linear-gradient(to bottom right, #69f529, #005600);
+    transform: skew(20deg);
+    border-radius: 5% 40% 70%;
+    box-shadow: inset 0px 0px 1px #222;
+    border: 1px solid #333;
+    z-index: 1;
+    animation: falling 5s infinite ease-in-out;
+    opacity: 0.9; /* Slightly increased */
+  }
+  
+  /* Alternate animations for variety */
+  #leaves i:nth-of-type(2n) {
+    animation: falling2 5s infinite ease-in-out;
+  }
+  #leaves i:nth-of-type(3n) {
+    animation: falling3 5s infinite ease-in-out;
+  }
+  
+  /* Styling for smaller leaves */
+  #leaves i:nth-of-type(n) {
+    height: 23px;
+    width: 30px;
+  }
+  #leaves i:nth-of-type(n):before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 5px;
+    top: 17px;
+    right: 1px;
+    background: linear-gradient(to right, rgb(30, 215, 30), #005600);
+    border-radius: 0% 15% 15% 0%;
+    border: 1px solid #222;
+  }
+  #leaves i:nth-of-type(n):after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 17px;
+    left: 12px;
+    top: 0px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+    transform: rotate(125deg);
+    border-radius: 50%;
+  }
+  
+  /* Adjust opacity for variety */
+  #leaves i {
+    opacity: 0.9; /* Base opacity */
+  }
+  #leaves i:nth-of-type(3n+1) {
+    opacity: 0.7; /* Slightly lower for variety */
+  }
+  #leaves i:nth-of-type(3n+2) {
+    opacity: 0.5; /* Even lower for depth */
+  }
+  
+  /* Add staggered animation delays */
+  #leaves i:nth-of-type(n) {
+    animation-delay: 1.9s;
+  }
+  #leaves i:nth-of-type(2n) {
+    animation-delay: 3.9s;
+  }
+  #leaves i:nth-of-type(3n) {
+    animation-delay: 2.3s;
+  }
+  #leaves i:nth-of-type(4n) {
+    animation-delay: 4.4s;
+  }
+  #leaves i:nth-of-type(5n) {
+    animation-delay: 5s;
+  }
+  #leaves i:nth-of-type(6n) {
+    animation-delay: 3.5s;
+  }
+  #leaves i:nth-of-type(7n) {
+    animation-delay: 2.8s;
+  }
+  #leaves i:nth-of-type(8n) {
+    animation-delay: 1.5s;
+  }
+  #leaves i:nth-of-type(9n) {
+    animation-delay: 3.3s;
+  }
+  #leaves i:nth-of-type(10n) {
+    animation-delay: 2.5s;
+  }
+  #leaves i:nth-of-type(11n) {
+    animation-delay: 1.2s;
+  }
+  #leaves i:nth-of-type(12n) {
+    animation-delay: 4.1s;
+  }
+  #leaves i:nth-of-type(13n) {
+    animation-delay: 1s;
+  }
+  #leaves i:nth-of-type(14n) {
+    animation-delay: 4.7s;
+  }
+  #leaves i:nth-of-type(15n) {
+    animation-delay: 3s;
+  }
+  
+  /* Keyframes for falling leaves */
+  @keyframes falling {
+    0% {
+      transform: translate3d(300px, 0, 0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(-350px, 700px, 0) rotate(90deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes falling2 {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(90deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(-400px, 680px, 0) rotate(0deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes falling3 {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(-20deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(-230px, 640px, 0) rotate(-70deg);
+      opacity: 0;
+    }
+  }
+
+   /* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start */
+    padding: 10px 20px; /* Adjust padding */
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger menu on smaller screens */
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links by default */
+    flex-direction: column; /* Stack nav links vertically */
+    gap: 15px; /* Reduce gap between links */
+    margin-top: 10px; /* Add some space above the links */
+    width: 100%; /* Make nav links take full width */
+    background: rgba(255, 255, 255, 0.8); /* Glass effect */
+    padding: 10px 0;
+  }
+
+  .nav-links.show {
+    display: flex; /* Show nav links when .show class is added */
+  }
+
+  .nav-links a {
+    font-size: 16px; /* Slightly reduce font size */
+    padding: 10px 20px; /* Add padding for better touch targets */
+    width: 100%; /* Make links take full width */
+    text-align: left; /* Align text to the left */
+  }
+}
+/* Mobile View Navbar */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: row; /* Keep logo and hamburger icon in a row */
+      justify-content: space-between; /* Space between logo and icon */
+      align-items: center;
+      padding: 10px 15px;
+  }
+
+  .hamburger {
+      display: block; /* Show hamburger icon */
+      font-size: 24px; /* Adjust size */
+      cursor: pointer;
+  }
+
+  .nav-links {
+      display: none; /* Hide links initially */
+      flex-direction: column; /* Stack links vertically */
+      position: absolute; /* Position relative to navbar */
+      top: 58px; /* Place below the navbar */
+      right: 0;
+      background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+      width: 100%; /* Full width */
+      padding: 15px 0; /* Add some padding */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
+  }
+
+  .nav-links li {
+      text-align: center; /* Center links */
+      margin: 10px 0; /* Add spacing */
+  }
+
+  .nav-links.show {
+      display: flex; /* Show links when active */
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .motivations-image {
+    height: 120px; /* Adjust height for smaller screens */
+    top: 4px;
+    margin-top: 4px;
+  }
+
+  .motivations-text {
+    font-size: 17px; /* Adjust font size */
+  }
+
+  .motivations-text-below {
+    font-size: 13px; /* Adjust font size */
+    margin-top: -70px; /* Adjust margin */
+  }
+  .logo img{
+    width: 100px;
+  }
+}
+ 

@@ -1,0 +1,69 @@
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav links */
+    align-items: center; /* Vertical centering of logo and links */
+    padding: 15px 50px;
+    background: rgba(255, 255, 255, 0.36); /* Glass effect */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    backdrop-filter: blur(15px); /* Smooth blur effect */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Glass-like border */
+    z-index: 1000;
+}
+/* Nav Links Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center nav links */
+    align-items: center; /* Vertically align nav links */
+    gap: 60px; /* Spacing between links */
+    flex: 1; /* Take up remaining space for proper centering */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #0000007d; /* Black text */
+    font-size: 20px; /* Larger text size */
+    font-weight: 600; /* Bold for readability */
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease; /* Smooth text color change */
+}
+
+/* Underline Hover Effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: #006400; /* Dark green underline */
+    border-radius: 5px; /* Rounded underline */
+    transition: width 0.4s ease; /* Smooth underline animation */
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Full underline on hover */
+}
+
+.nav-links a:hover {
+    color: #006400; /* Dark green text on hover */
+}
+/* Logo Styling */
+.logo {
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo img {
+    width: 170px; /* Adjust logo size */
+}

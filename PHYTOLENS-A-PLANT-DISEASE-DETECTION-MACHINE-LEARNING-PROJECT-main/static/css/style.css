@@ -1,0 +1,833 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    height: 58px;
+    justify-content: space-between; /* Space between logo and nav links */
+    align-items: center; /* Vertical centering of logo and links */
+    padding: 15px 50px;
+    background: rgba(255, 255, 255, 0.2); /* Glass effect */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    backdrop-filter: blur(15px); /* Smooth blur effect */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Glass-like border */
+    z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo img {
+    width: 130px; /* Adjust logo size */
+}
+/* Left Content Styling */
+.left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    max-width: 500px;
+    margin-top: 35px; /* Adjust if needed */
+}
+
+/* Main Title */
+.main-title {
+    font-size: 40px; /* Big title size */
+    font-weight: bold;
+    color: #2a2828; /* Black color */
+    margin-bottom: 10px;
+}
+
+/* Sub Title */
+.sub-title {
+    font-size: 35px; /* Slightly smaller than the title */
+    font-weight: bold;
+    color: #006400; /* Dark Green */
+    margin-bottom: 20px;
+}
+
+/* Description */
+.description {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Nav Links Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center nav links */
+    align-items: center; /* Vertically align nav links */
+    gap: 60px; /* Spacing between links */
+    flex: 1; /* Take up remaining space for proper centering */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #0000007d; /* Black text */
+    font-size: 17px; /* Larger text size */
+    font-weight: 600; /* Bold for readability */
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease; /* Smooth text color change */
+}
+
+/* Underline Hover Effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: #006400; /* Dark green underline */
+    border-radius: 5px; /* Rounded underline */
+    transition: width 0.4s ease; /* Smooth underline animation */
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Full underline on hover */
+}
+
+.nav-links a:hover {
+    color: #006400; /* Dark green text on hover */
+}
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.right-image img {
+    width: 400px; /* Adjust width to make it larger */
+    height: 400px; /* Keep the height same as the width for a circle */
+    object-fit: cover; /* Ensures the image fits perfectly */
+    filter: drop-shadow(0 4px 15px rgba(14, 104, 7, 0.34)); 
+    margin-right: 210px;
+    margin-top: 80px;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.sub-title {
+    display: inline-flex;
+    align-items: center; /* Align text and image vertically */
+    gap: 8px; /* Add some space between text and image */
+}
+.subtitle-icon {
+    width: 50px; /* Adjust size of the icon */
+    height: 55px;
+    vertical-align: middle; /* Ensures proper alignment with text */
+}
+
+/*BUTTON STYLING*/
+/* Basic Button Styling */
+.snake-button {
+    background: linear-gradient(40deg,#e6f454ee, #7ddb2b, #2a972a); /* Dimmed gradient from white, yellow, green */
+    color: #20382b; /* Light black text */
+    border: 2px solid transparent;
+    padding: 18px 45px; /* Increased padding for a larger button */
+    font-size: 20px; /* Increased font size */
+    font-family: 'Arial', sans-serif;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    border-radius: 50px;
+    overflow: hidden; /* To ensure the pseudo-element doesn't break out of the button */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.463);
+    z-index: 1; /* Ensure the text is on top */
+  }
+  
+  /* Pseudo-element for the moving border effect */
+  .snake-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    border: 4px solid #fff; /* Thicker white border */
+    animation: moving-border 2s linear infinite; /* animation of border */
+    z-index: -1; /* Keeps the border behind the button */
+    box-sizing: border-box; /* Ensures the border is contained within the button */
+  }
+  
+  /* Animation for the border moving around the perimeter */
+  @keyframes moving-border {
+    0% {
+      border-top: 4px solid #fff;
+      border-right: 4px solid #fff;
+      border-bottom: 4px solid #fff;
+      border-left: 4px solid #fff;
+    }
+    25% {
+      border-top: 4px solid transparent;
+      border-right: 4px solid #fff;
+      border-bottom: 4px solid transparent;
+      border-left: 4px solid transparent;
+    }
+    50% {
+      border-top: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 4px solid #fff;
+      border-left: 4px solid transparent;
+    }
+    75% {
+      border-top: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 4px solid #fff;
+    }
+    100% {
+      border-top: 4px solid #fff;
+      border-right: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 4px solid transparent;
+    }
+  }
+  
+  /* Hover effect to make the button look interactive */
+  .snake-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+.benefit-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: -30px; /* Moves the boxes upwards */
+    padding: 30px;
+    position: relative; /* Ensures proper stacking context */
+    z-index: 2; /* Ensures it appears above other content */   
+}
+
+.box {
+    width: 300px;
+    background: linear-gradient(40deg,#edeee8ee, #bccab0); 
+    border-radius: 10px;
+    box-shadow: 2 6px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    border: 5px solid white; /* Thick white border */
+    margin-top: -30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.box-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.box h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.box p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* About Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* About Section */
+/* About Section */
+.about-page {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+/* Main Heading */
+.about-heading {
+    font-size: 35px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.about-heading span {
+    position: relative;
+    color: #006400; /* Dark Green */
+}
+
+/* First Underline effect with continuous animation */
+.about-heading::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #006400; /* Dark Green */
+    transform: scaleX(0); /* Start with the underline collapsed */
+    transform-origin: bottom right;
+    animation: underlineEffect 2s infinite alternate; /* Infinite animation */
+}
+
+/* Second Underline (Yellow) with the same effect, lower than the green one */
+.about-heading::before {
+    content: "";
+    position: absolute;
+    bottom: -12px; /* Adjust to place it below the green underline */
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: yellow; /* Yellow underline */
+    transform: scaleX(0); /* Start with the underline collapsed */
+    transform-origin: bottom left;
+    animation: underlineEffect 2s infinite alternate; /* Infinite animation */
+}
+
+/* Keyframes for expanding and contracting underline */
+@keyframes underlineEffect {
+    0% {
+        transform: scaleX(0); /* Collapse */
+    }
+    50% {
+        transform: scaleX(1); /* Expand */
+    }
+    100% {
+        transform: scaleX(0); /* Collapse */
+    }
+}
+
+/* Description */
+.about-description {
+    margin-top: 30px;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 1400px;
+    margin-left: 49px;
+    margin-right: 49px;
+    color: #555;
+}
+
+/* Supported Plants Section */
+.supported-plants {
+    text-align: center;
+    margin: 40px 80px;
+    padding: 40px;
+    background: linear-gradient(135deg, #f5f9f3, #e8f3e8);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(36, 87, 52, 0.66);
+}
+
+/* Section Heading */
+.section-heading {
+    font-size: 28px;
+    font-weight: bold;
+    color: #006400; /* Dark green */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Plant Grid */
+.plant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    padding: 40px 0;
+}
+
+/* Plant Card */
+.plant-card {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plant-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Plant Image Styling */
+.plant-card img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.plant-card img:hover {
+    transform: scale(1.2);
+}
+
+/* Plant Name Styling */
+.plant-card p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.how-it-works {
+    padding: 30px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.how-heading {
+    font-size: 33px;
+    font-weight: bold;
+    color: #006400;
+    margin-bottom: 40px;
+}
+
+.how-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.how-block {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(67, 198, 109, 0.877);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.how-block:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.8);
+}
+
+.how-block h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.example-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.how-block p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Step Icon Styling */
+.step-icon {
+    width: 70px; /* Adjust the size of the icons */
+    height: auto;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+/* Arrow Styling */
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-icon {
+    width: 70px;
+    height: auto;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .how-grid {
+        flex-direction: column;
+    }
+
+    .arrow-icon {
+        transform: rotate(90deg);
+    }
+}
+
+.motivation-section {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(to bottom, #e8f5e9, #ffffff);
+  }
+  
+  .motivation-heading {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #1e8449;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    animation: popIn 1s ease;
+  }
+  
+  @keyframes popIn {
+    0% {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .motivation-text {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    line-height: 1.8;
+  }
+  
+  .motivation-reasons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  
+  .reason {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff, #bdc3c7);
+    color: #1e8449;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    border: 5px solid white;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .reason i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #22d877;
+  }
+  
+  .reason:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  .more-btn {
+    font-size: 1.2rem;
+    padding: 14px 35px;
+    background: linear-gradient(to right, #1e8449, #27ae60);
+    color: white;
+    border: 3px solid #27ae60;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
+  }
+  
+  .more-btn:hover {
+    background: linear-gradient(to right, #27ae60, #1e8449);
+    transform: scale(1.1);
+    border-color: #1e8449;
+  }
+  
+  /* Mobile View (Max Width: 768px) */
+@media (max-width: 768px) {
+    
+
+    .logo img {
+        width: 140px; /* Resize logo for mobile */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack nav links */
+        gap: 15px; /* Add spacing between links */
+    }
+
+    .nav-links a {
+        font-size: 15px; /* Reduce font size for mobile */
+    }
+
+    /* Hero Section */
+    .hero {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center; /* Center align text */
+        height: auto; /* Let content determine height */
+        padding: 20px;
+    }
+
+    /* Left Content */
+    .left-content {
+        align-items: center; /* Center content */
+        padding: 20px;
+        max-width: 100%; /* Allow full width */
+    }
+
+    .main-title {
+        font-size: 32px; /* Resize title */
+    }
+
+    .sub-title {
+        font-size: 27px; /* Resize subtitle */
+    }
+
+    .description {
+        font-size: 14px; /* Adjust description font size */
+        line-height: 1.5; /* Maintain readability */
+    }
+
+    /* Button */
+    .snake-button {
+        padding: 12px 30px; /* Adjust button padding */
+        font-size: 16px; /* Adjust font size */
+    }
+}
+
+/* Extra Small Mobile View (Max Width: 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 5px 10px; /* Reduce padding */
+    }
+
+    .logo img {
+        width: 90px; /* Smaller logo */
+    }
+
+    .nav-links {
+        gap: 10px; /* Reduce gap */
+    }
+
+    .nav-links a {
+        font-size: 14px; /* Smaller text for links */
+    }
+
+    .main-title {
+        font-size: 26px; /* Resize title */
+    }
+
+    .sub-title {
+        font-size: 24px; /* Resize subtitle */
+    }
+
+    .description {
+        font-size: 12px; /* Smaller font for description */
+    }
+
+    .right-image img {
+        width: 200px; /* Adjust image size */
+        height: 200px;
+    }
+
+    .snake-button {
+        padding: 10px 25px; /* Adjust button padding */
+        font-size: 14px; /* Smaller button text */
+    }
+}
+/* Mobile View Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row; /* Keep logo and hamburger icon in a row */
+        justify-content: space-between; /* Space between logo and icon */
+        align-items: center;
+        padding: 10px 15px;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon */
+        font-size: 24px; /* Adjust size */
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: none; /* Hide links initially */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute; /* Position relative to navbar */
+        top: 58px; /* Place below the navbar */
+        right: 0;
+        background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+        width: 100%; /* Full width */
+        padding: 15px 0; /* Add some padding */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
+    }
+
+    .nav-links li {
+        text-align: center; /* Center links */
+        margin: 10px 0; /* Add spacing */
+    }
+
+    .nav-links.show {
+        display: flex; /* Show links when active */
+    }
+}
+@media (max-width: 768px) {
+    .right-image img {
+        display: none;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .benefit-boxes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .how-grid {
+        flex-direction: column;
+    }
+
+    .how-block, .plant-card {
+        width: 90%;
+    }
+
+    .how-block h3, .box h3 {
+        font-size: 16px;
+    }
+
+    .about-description {
+        font-size: 15px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .motivation-section {
+        padding: 50px 20px;
+    }
+
+    .motivation-heading {
+        font-size: 2.5rem;
+    }
+
+    .motivation-reasons {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-heading {
+        font-size: 30px;
+    }
+    .how-heading{
+        font-size: 25px;
+    }
+    .about-description {
+        font-size: 14px;
+    }
+
+    .box {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .supported-plants {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .plant-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .plant-grid img{
+        width: 110px;
+    }
+
+    .step-icon {
+        width: 50px;
+    }
+
+    .example-image {
+        width: 80%;
+    }
+
+    .motivation-section {
+        padding: 40px 20px;
+    }
+
+    .motivation-reasons {
+        gap: 20px;
+        margin-left: 64px;
+    }
+
+    .motivation-heading {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .how-block, .box {
+        width: 100%;
+    }
+
+    .motivation-text {
+        font-size: 1.2rem;
+        margin: 0 20px;
+    }
+
+    .motivation-reasons {
+        gap: 20px;
+    }
+
+    .motivation-heading {
+        font-size: 2rem;
+    }
+
+
+    .how-grid {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phytolens - Test Leaf</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 58px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            background: rgba(255, 255, 255, 0.36);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+            font-family: Arial, sans-serif;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            display: inline-block;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #0000007d;
+            font-size: 17px; /* Set font size to 17px */
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 3px;
+            background: #006400;
+            border-radius: 5px;
+            transition: width 0.4s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: #006400;
+        }
+        .logo {
+            flex-shrink: 0;
+        }
+        .logo img {
+            width: 130px;
+        }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .container {
+            margin-top: 450px; /* Increase distance from top */
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            text-align: center; /* Center the heading */
+        }
+        body {
+            background: linear-gradient(to right, #c0cee58d, #c9e2ed79, #ddbad959, #a9e5b1a2); /* Light pastel gradient */
+        }
+        .heading {
+            color: #006400; /* Dark green color */
+            font-weight: bold;
+            font-size: 32px; /* Increase font size */
+            margin-top: 50px; /* Add top margin */
+        }
+        .subheading {
+            font-size: 18px; /* Decrease font size */
+            color: #555;
+        }
+        .testing-area {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .box {
+            background: linear-gradient(145deg, #d7e3eb, #50decd76); /* Light colors */
+            padding: 15px; /* Decrease padding */
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px #aaa, -5px -5px 10px #fff;
+            flex: 1;
+            margin: 10px;
+            max-width: 45%; /* Make boxes smaller */
+            height: 450px; /* Increase height */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .box.left-box {
+            height: 450px; /* Height for the upload box */
+        }
+        .box.right-box {
+            height: 350px; /* Shorter height for the prediction box */
+        }
+        .box h2 {
+            font-size: 18px; /* Decrease font size */
+        }
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .preview-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 250px; /* Increase height */
+            margin-top: 20px;
+            border: 1px dashed #353535;
+            border-radius: 10px;
+            background-color: #d6e9e9;
+            overflow: hidden;
+            position: relative;
+        }
+        .preview-box img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .prediction-overlay {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            padding: 10px;
+            border-radius: 10px;
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translate(-50%, -0%);
+            text-align: center;
+            width: 70%;
+            height: auto; /* Adjust height */
+        }
+        .button {
+            background: linear-gradient(145deg, #006400, #00796b);
+            color: white;
+            padding: 10px 20px; /* Decrease button size */
+            border: 5px solid white; /* Decrease border size */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            margin: 5px 0; /* Reduce margin */
+            font-size: 14px; /* Decrease font size */
+        }
+        .button:hover {
+            background: linear-gradient(145deg, #005a4c, #006400);
+            transform: translateY(-3px);
+        }
+        .button-1 {
+            background: linear-gradient(145deg, #ff7e5f, #feb47b);
+        }
+        .button-1:hover {
+            background: linear-gradient(145deg, #feb47b, #ff7e5f);
+        }
+        .button-2 {
+            background: linear-gradient(145deg, #6a82fb, #fc5c7d);
+        }
+        .button-2:hover {
+            background: linear-gradient(145deg, #fc5c7d, #6a82fb);
+        }
+        .button-3 {
+            background: linear-gradient(145deg, #43e97b, #38f9d7);
+        }
+        .button-3:hover {
+            background: linear-gradient(145deg, #38f9d7, #43e97b);
+        }
+        .go-back-button {
+            display: block;
+            margin: 40px auto;
+            background: linear-gradient(145deg, #55e083, #51beaa);
+            color: white;
+            padding: 10px 20px; /* Decrease button size */
+            border: 5px solid white; /* Decrease border size */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px; /* Decrease font size */
+            font-weight: bold;
+            max-width: 200px; /* Decrease width */
+        }
+        .go-back-button:hover {
+            background: linear-gradient(145deg, #38f9d7, #43e97b);
+        }
+        .file-input {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .file-input input[type=file] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .file-input button {
+            background: linear-gradient(145deg, #00796b, #43e97b);
+            color: white;
+            padding: 10px 20px; /* Decrease button size */
+            border: 5px solid white; /* Decrease border size */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            font-size: 14px; /* Decrease font size */
+        }
+        .file-input button:hover {
+            background: linear-gradient(145deg, #005a4c, #006400);
+            transform: translateY(-3px);
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Media Queries for Mobile View */
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 38px; /* Adjust distance for mobile */
+            }
+            .testing-area {
+                flex-direction: column; /* Stack elements vertically */
+            }
+            .box {
+                max-width: 100%; /* Full width for mobile */
+                margin-bottom: 20px; /* Add spacing between boxes */
+            }
+            .arrow {
+                transform: rotate(90deg); /* Rotate arrow by 90 degrees */
+                margin-bottom: 20px; /* Add spacing below arrow */
+            }
+            .hamburger {
+                display: block; /* Show hamburger menu */
+                font-size: 20px;
+            }
+            .heading {
+                font-size: 24px; /* Increase font size */
+            }
+            .subheading {
+                font-size: 12px; /* Decrease font size */
+            }
+            .nav-links {
+                display: none; /* Hide links by default */
+                flex-direction: column; /* Stack links vertically */
+                position: absolute; /* Position relative to navbar */
+                top: 42px; /* Place below navbar */
+                right: 0;
+                background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+                width: 100%; /* Full width */
+                padding: 8px 0; /* Add padding */
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
+            }
+            .nav-links.show {
+                display: flex; /* Show links when active */
+            }
+            .nav-links li {
+                text-align: center; /* Center links */
+                margin: 2px 0; /* Adjust spacing */
+            }
+            .nav-links a {
+                font-size: 12px; /* Reduce font size */
+                padding: 5px 0; /* Adjust padding */
+            }
+            .logo img {
+                width: 90px; /* Smaller logo */
+            }
+            .prediction-report {
+                padding: 15px; /* Adjust padding for mobile */
+                margin-bottom: 20px; /* Adjust margin for mobile */
+            }
+            .prediction-report h2 {
+                font-size: 22px; /* Adjust font size for mobile */
+                margin-bottom: 20px; /* Adjust bottom margin for mobile */
+            }
+            .prediction-report p, .prediction-report ul {
+                font-size: 13px; /* Adjust font size for mobile */
+                margin-bottom: 8px; /* Adjust bottom margin for mobile */
+            }
+            .prediction-report ul {
+                padding-left: 20px; /* Adjust padding for mobile */
+            }
+        }
+        /* Prediction Report Styles */
+        .prediction-report {
+            background: linear-gradient(145deg, #ffffff, #8e8b8b); /* White-grey gradient */
+            padding: 20px; /* Increase padding */
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px #aaa, -5px -5px 10px #fff;
+            margin: 20px 0;
+            max-width: 100%; /* Full width */
+            height: auto; /* Increase height */
+            text-align: left; /* Left align content */
+            word-wrap: break-word;
+        }
+        .prediction-report h2 {
+            font-size: 32px; /* Increase font size */
+            color: #175017; /* Dark green color */
+            text-align: center; /* Center align heading */
+            margin-bottom: 25px; /* Reduce bottom margin */
+        }
+        .prediction-report p, .prediction-report ul {
+            font-size: 18px; /* Increase font size */
+            color: #1b1919;
+            margin-bottom: 10px; /* Reduce bottom margin */
+        }
+        .prediction-report ul {
+            padding-left: 30px; /* Add padding to the left for list */
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        function previewImage(event) {
+            const preview = document.getElementById('image-preview');
+            preview.innerHTML = ''; // Clear previous content
+            const img = document.createElement('img');
+            img.src = URL.createObjectURL(event.target.files[0]);
+            img.onload = () => URL.revokeObjectURL(img.src); // Free memory
+            preview.appendChild(img);
+        }
+
+        function resetImage() {
+            const input = document.getElementById('leaf-image');
+            input.value = ''; // Clear the input value
+            const preview = document.getElementById('image-preview');
+            preview.innerHTML = '<p>No image uploaded yet.</p>'; // Reset preview box content
+        }
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776; <!-- Hamburger Icon -->
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+            <li><a href="{{ url_for('project_details') }}">Project Details</a></li>
+            <li><a href="{{ url_for('motivations') }}">Motivations</a></li>
+            <li><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1 class="heading">🌿 Phytolens Leaf Disease Detection 🌿</h1>
+            <p class="subheading">Upload a leaf image to predict its health status🍁</p>
+        </header>
+        <main>
+            <div class="testing-area">
+                <!-- Left Box -->
+                <div class="box left-box">
+                    <h2>Upload Leaf Image</h2>
+                    <form id="upload-form" action="/test" method="POST" enctype="multipart/form-data">
+                        <div class="file-input">
+                            <button>Select Image</button>
+                            <input type="file" id="leaf-image" name="leaf_image" accept="image/*" onchange="previewImage(event)" required>
+                        </div>
+                        <div id="image-preview" class="preview-box">
+                            {% if filename %}
+                                <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Leaf Image">
+                            {% else %}
+                                <p>No image uploaded yet.</p>
+                            {% endif %}
+                        </div>
+                        <div class="button-container">
+                            <button type="submit" id="submit-button" class="button button-1">Predict</button>
+                            <button type="button" id="reset-button" onclick="resetImage()" class="button button-2">Try Another Image</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Arrow -->
+                <div class="arrow">
+                    <img src="{{ url_for('static', filename='images/icons/arrow.png') }}" alt="Arrow">
+                </div>
+
+                <!-- Right Box -->
+                <div class="box right-box">
+                    <h2>☘️ Prediction Result ☘️</h2>
+                    <div id="result-preview" class="preview-box">
+                        {% if filename %}
+                            <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Predicted Leaf Image">
+                        {% endif %}
+                        {% if plant_name and disease_name %}
+                            <div class="prediction-overlay">
+                                <p>Prediction: <strong>{{ plant_name }} - {{ disease_name }}</strong></p>
+                            </div>
+                        {% else %}
+                            <p>Results will be displayed here after prediction.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Prediction Report -->
+    <div class="container">
+        <div class="prediction-report">
+            <h2>🌿 PREDICTION REPORT 🌿</h2>
+            {% if plant_name and disease_name %}
+                <p>☘️ THE LEAF BELONGS TO THE FOLLOWING PLANT : <strong>{{ plant_name }}</strong></p>
+                <p>☘️ THE PREDICTED DISEASE BY PHYTOLENS IS: <strong>{{ disease_name }}</strong></p>
+                <p>☘️ HOW MUCH HARMFUL IN THE SCALE OF 1 TO 10 : <strong>{{ harmfulness }}</strong></p>
+                <p>☘️ RECOMMENDATIONS:</p>
+                <ul>
+                    {% for recommendation in recommendations %}
+                        <li>{{ recommendation }}</li>
+                    {% endfor %}    
+                </ul>
+            {% else %}
+                <p>No prediction available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <a href="{{ url_for('index') }}" class="go-back-button button-3">Go Back to Home</a>
+</body>
+</html>
