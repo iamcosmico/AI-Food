@@ -1,5 +1,5 @@
 # AI-Food
-=======
+
 # **PhytoLens: AI-Powered Plant Disease Prediction**
 ## Overview
 
